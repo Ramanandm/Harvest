@@ -2,7 +2,7 @@ package com.harvestbasket.EcomBackend.dao;
 
 import java.util.List;
 
-import com.harvetbasket.EcomBackend.model.Category;
+import com.harvestbasket.EcomBackend.model.Category;
 
 public interface CategoryDao {
 

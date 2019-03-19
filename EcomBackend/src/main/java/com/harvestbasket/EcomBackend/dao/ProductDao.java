@@ -1,7 +1,8 @@
 package com.harvestbasket.EcomBackend.dao;
 
 import java.util.List;
-import com.harvetbasket.EcomBackend.model.Product;
+
+import com.harvestbasket.EcomBackend.model.Product;
 
 public interface ProductDao {
 	boolean insertProduct(Product products);

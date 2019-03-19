@@ -2,7 +2,7 @@ package com.harvestbasket.EcomBackend.dao;
 
 import java.util.List;
 
-import com.harvetbasket.EcomBackend.model.Seller;
+import com.harvestbasket.EcomBackend.model.Seller;
 
 public interface SellerDao {
 	boolean insertSeller(Seller seller);

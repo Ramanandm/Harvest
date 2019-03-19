@@ -19,40 +19,38 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("com.harvestbasket")
 public class DbConfig {
 	@Bean
-	DataSource myDataSource()
-	{	
-		BasicDataSource basicDataSource=new BasicDataSource();
+	DataSource myDataSource() {
+		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setDriverClassName("org.h2.Driver");
-		basicDataSource.setUrl("jdbc:h2:~/harvestbasket");
+		basicDataSource.setUrl("jdbc:h2:tcp://localhost/~/harvestbasket");
 		basicDataSource.setUsername("sa");
 		basicDataSource.setPassword("sa");
 		return basicDataSource;
 	}
 
-Properties myProperties()
-{
-	Properties properties=new Properties();
-	properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-	properties.setProperty("hibernate.show_sql", "true");
-	properties.setProperty("hibernate.hbm2ddl.auto", "update");
-	return properties;
-}
-@Bean("sessionFactory")
-LocalSessionFactoryBean localSessionFactoryBean()
-{
-	LocalSessionFactoryBean  localSessionFactoryBean=new LocalSessionFactoryBean();
-	localSessionFactoryBean.setDataSource(myDataSource());
-	localSessionFactoryBean.setHibernateProperties(myProperties());
-	localSessionFactoryBean.setPackagesToScan("com.harvestbasket.EcomBackend.model");
-	return localSessionFactoryBean;
-}
-@Bean
-@Autowired
-HibernateTransactionManager hibernateTransactionManager(SessionFactory sessionFactory)
-{
-	HibernateTransactionManager HibernateTransactionManager=new HibernateTransactionManager();
-	HibernateTransactionManager.setSessionFactory(sessionFactory);
-	return HibernateTransactionManager;
-}
+	Properties myProperties() {
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		return properties;
+	}
+
+	@Bean("sessionFactory")
+	LocalSessionFactoryBean localSessionFactoryBean() {
+		LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
+		localSessionFactoryBean.setDataSource(myDataSource());
+		localSessionFactoryBean.setHibernateProperties(myProperties());
+		localSessionFactoryBean.setPackagesToScan("com.harvestbasket.EcomBackend.model");
+		return localSessionFactoryBean;
+	}
+
+	@Autowired
+	@Bean
+	HibernateTransactionManager hibernateTransactionManager(SessionFactory sessionFactory) {
+		HibernateTransactionManager HibernateTransactionManager = new HibernateTransactionManager();
+		HibernateTransactionManager.setSessionFactory(sessionFactory);
+		return HibernateTransactionManager;
+	}
 
 }

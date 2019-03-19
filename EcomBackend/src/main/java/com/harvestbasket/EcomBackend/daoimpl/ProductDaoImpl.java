@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.harvestbasket.EcomBackend.dao.ProductDao;
-import com.harvetbasket.EcomBackend.model.Category;
-import com.harvetbasket.EcomBackend.model.Product;
-import com.harvetbasket.EcomBackend.model.Seller;
+import com.harvestbasket.EcomBackend.model.Category;
+import com.harvestbasket.EcomBackend.model.Product;
+import com.harvestbasket.EcomBackend.model.Seller;
 
 @Transactional
 @Repository()

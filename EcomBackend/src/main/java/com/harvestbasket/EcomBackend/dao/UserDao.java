@@ -2,7 +2,7 @@ package com.harvestbasket.EcomBackend.dao;
 
 import java.util.List;
 
-import com.harvetbasket.EcomBackend.model.User;
+import com.harvestbasket.EcomBackend.model.User;
 
 public interface UserDao {
 	
