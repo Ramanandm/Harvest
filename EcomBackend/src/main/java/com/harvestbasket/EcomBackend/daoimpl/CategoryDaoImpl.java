@@ -12,7 +12,7 @@ import com.harvestbasket.EcomBackend.dao.CategoryDao;
 import com.harvestbasket.EcomBackend.model.Category;
 
 @Transactional
-@Repository()
+@Repository
 public class CategoryDaoImpl implements CategoryDao {
 	
 	@Autowired
@@ -55,7 +55,7 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Override
 	public List<Category> selectAllCategories() {
 		try {
-		     return sessionFactory.getCurrentSession().createQuery("from Categories").list();
+		     return sessionFactory.getCurrentSession().createQuery("from Category").list();
 		}catch (Exception e) {
 		}
 		return null;

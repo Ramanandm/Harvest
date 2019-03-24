@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Category {
@@ -13,10 +16,14 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int categid;
 	
-	@Column(nullable=false)
+	@Column(nullable=false,unique = true)
+	@NotEmpty(message="category Name is mandatory")
+	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String categname;
 	
 	@Column(nullable=false)
+	@NotEmpty(message="category Name is mandatory")
+	@Pattern(regexp="[0-9a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String categdesc;
 
 	public int getCategid() {
@@ -43,4 +50,5 @@ public class Category {
 		this.categdesc = categdesc;
 	}
 
+	
 }
