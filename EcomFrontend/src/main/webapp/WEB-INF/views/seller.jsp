@@ -95,25 +95,24 @@ to {
 	.cancelbtn {
 		width: 100%;
 	}
-	
 }
 </style>
 <div class="modal-content animate">
 
-	<form:form action="addcategory" modelAttribute="catobject">
+	<form:form action="addseller" modelAttribute="sellobject">
 		<div class="container">
 			<hr>
 			<div>
-				<label for="category"><b><font color="red">Category
+				<label for="seller"><b><font color="red">seller
 							name</font></b></label>
-				<form:input type="text" placeholder="Enter category name"
-					name="categoryname" path="categname" />
+				<form:input type="text" placeholder="Enter seller name"
+					name="sellername" path="sname" />
 			</div>
 			<div>
-				<label for="categdesc"><b><font color="red">Category
+				<label for="sdesc"><b><font color="red">seller
 							description</font></b></label>
 				<form:input type="text" placeholder="Enter category description"
-					name="categorydesc" path="categdesc" />
+					name="sellerdesc" path="sdesc" />
 				<c:if test="${success}">
 					<div class="alert alert-success" role="alert">Inserted
 						Successfully</div>
@@ -127,28 +126,21 @@ to {
 		</div>
 	</form:form>
 </div>
-<div class="modal-content animate">
+<div class="modal-content">
 	<table align="center">
-	<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
 		<thead>
-			<tr>
-			   <style> font: italic bold 100px/100px Georgia, serif;</style>
-				<th>CATEGORY ID</th>
-				<th>CATEGORY NAME</th>
-				<th>CATEGORY DESCRIPTION</th>
-				<th>EDIT DELIT</th>
+			<tr>		 
+				<th>SELLER ID</th>
+				<th>SELLER NAME</th>
+				<th>SELLER DESCRIPTION</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${categorylist}" var="cat">
+			<c:forEach items="${sellerlist}" var="sell">
 				<tr>
-					<td>${cat.categid}</td>
-					<td>${cat.categname}</td>
-					<td>${cat.categdesc}</td>
+					<td>${sell.sid}</td>
+					<td>${sell.sname}</td>
+					<td>${sell.sdesc}</td>
 					<td class="text-center"><a class='btn btn-info btn-xs'
 						href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a
 						href="#" class="btn btn-danger btn-xs"><span

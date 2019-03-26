@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.harvestbasket.EcomBackend.dao.SellerDao;
+import com.harvestbasket.EcomBackend.model.Category;
 import com.harvestbasket.EcomBackend.model.Seller;
 import com.harvestbasket.EcomBackend.model.User;
 import com.harvestbasket.EcomBackend.model.Usercred;
@@ -78,4 +79,16 @@ public class SellerDaoImpl implements SellerDao {
 	}
 
 }
+
+	@Override
+	public boolean insertSeller1(Seller c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean insertSeller11(Seller c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

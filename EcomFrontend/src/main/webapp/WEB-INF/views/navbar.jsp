@@ -63,7 +63,7 @@
 			href="contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a> <a
 			href="category"><i class="glyphicon glyphicon-shopping-cart"></i>
 			Category</a>
-
+            <a href="seller"><i class="fa fa-fw fa-user"></i> seller</a>
 		<ul class="navbar-nav navbar-right">
 			<li><a href="register"><span
 					class="glyphicon glyphicon-user"></span> Sign Up</a></li>

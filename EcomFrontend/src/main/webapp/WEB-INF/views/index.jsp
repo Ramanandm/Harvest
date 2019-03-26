@@ -10,12 +10,7 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <title>harvest basket</title>
 </head>
 <body>
@@ -41,6 +36,9 @@
 		</c:if>
 		<c:if test="${categoryPage}">
 			<jsp:include page="category.jsp" />
+		</c:if>
+		<c:if test="${sellerPage}">
+			<jsp:include page="seller.jsp" />
 		</c:if>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
