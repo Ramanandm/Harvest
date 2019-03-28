@@ -6,6 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 public class Product
@@ -15,20 +20,30 @@ public class Product
 	private int productid;
 	
 	
-	@Column(nullable=true)
+	@Column(nullable=false)
+	@NotEmpty(message="category Name is mandatory")
+	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String productname;
 	
 	@Column(nullable=true)
+	@NotEmpty(message="category Name is mandatory")
+	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String productdec;
 	
 	@Column(nullable=true)
+	@Range(min=10,max=1000)
 	private int productstock;
 	
 	@Column(nullable=true)
+	@Range(min=10,max=1000)
 	private int productprice;
 	
 	@ManyToOne
 	private Category productcategory;
+	
+	@ManyToOne
+	private Seller productseller;
+
 
 	public int getProductid() {
 		return productid;
@@ -77,6 +92,13 @@ public class Product
 	public void setProductcategory(Category productcategory) {
 		this.productcategory = productcategory;
 	}
-	
+
+	public Seller getProductseller() {
+		return productseller;
+	}
+
+	public void setProductseller(Seller productseller) {
+		this.productseller = productseller;
+	}	
 	
 }

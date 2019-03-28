@@ -21,7 +21,18 @@ public class Seller {
 	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String sname;
 	
+	@Column(nullable=false,unique=true)
+	@NotEmpty(message="City Name is mandatory")
+	@Pattern(regexp="[a-zA-Z ]{3,20}",message="can contan only alphabets manditatory")
+	private String scity;
+	
+	@Column(nullable=false,unique=false)
+	@NotEmpty(message="Mail id is mandatory")
+	@Pattern(regexp="^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$",message="can contan only alphabets manditatory")
+	private String smailid;
+	
 	@Transient
+	@NotEmpty(message="password is mandatory")
     private String sellerpassword;
 	
 	@Column(nullable=false)
@@ -59,6 +70,22 @@ public class Seller {
 
 	public void setSellerpassword(String sellerpassword) {
 		this.sellerpassword = sellerpassword;
+	}
+
+	public String getScity() {
+		return scity;
+	}
+
+	public void setScity(String scity) {
+		this.scity = scity;
+	}
+
+	public String getSmailid() {
+		return smailid;
+	}
+
+	public void setSmailid(String smailid) {
+		this.smailid = smailid;
 	}
 
 }

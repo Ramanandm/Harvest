@@ -45,7 +45,7 @@ public class ProductDaoImpl implements ProductDao {
 	public boolean deleteProduct(int productid)
 	{
 		try {
-	    	   sessionFactory.getCurrentSession().delete(productid);
+	    	   sessionFactory.getCurrentSession().delete(selectOneProducts(productid));
 	    	   return true;
 		} catch (Exception e) {
 		}
@@ -65,7 +65,7 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public ProductDao selectOneProducts(int productid) {
 		try {
-			return (ProductDao)sessionFactory.getCurrentSession().createQuery("from Product where productid ='"+productid+"'").uniqueResult();
+			return (ProductDao)sessionFactory.getCurrentSession().createQuery("from Product where productid ="+productid).uniqueResult();
 		}catch (Exception e) {
 			return null;
 	}

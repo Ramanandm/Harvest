@@ -44,7 +44,7 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Override
 	public boolean deleteCategory(String categname) {
 		try {
-	    	   sessionFactory.getCurrentSession().delete(categname,Category.class);
+	    	   sessionFactory.getCurrentSession().delete(selectOneCategory(categname));
 	    	   return true;
 		} catch (Exception e) {
 			// TODO: handle exception

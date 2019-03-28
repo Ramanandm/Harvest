@@ -109,6 +109,25 @@ to {
 					name="sellername" path="sname" />
 			</div>
 			<div>
+				<label for="seller city"><b><font color="red">seller
+							city</font></b></label>
+				<form:input type="text" placeholder="Enter seller city"
+					name="sellername" path="scity"/>
+			</div>
+			<div>
+				<label for="Email id"><b><font color="red">Email id
+						</font></b></label>
+				<form:input type="text" placeholder="Enter seller city"
+					name="Email id" path="smailid"/>
+			</div>
+			<div>
+				<label for="password"><b><font color="red">password
+						</font></b></label>
+				<form:input type="password" placeholder="Enter your password"
+					name="Email id" path="sellerpassword"/>
+			</div>
+			
+			<div>
 				<label for="sdesc"><b><font color="red">seller
 							description</font></b></label>
 				<form:input type="text" placeholder="Enter category description"
@@ -122,32 +141,7 @@ to {
 				</c:if>
 
 			</div>
-			<button type="submit" class="registerbtn">INSERT</button>
+			<button type="submit" class="registerbtn">SUBMIT</button>
 		</div>
 	</form:form>
-</div>
-<div class="modal-content">
-	<table align="center">
-		<thead>
-			<tr>		 
-				<th>SELLER ID</th>
-				<th>SELLER NAME</th>
-				<th>SELLER DESCRIPTION</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${sellerlist}" var="sell">
-				<tr>
-					<td>${sell.sid}</td>
-					<td>${sell.sname}</td>
-					<td>${sell.sdesc}</td>
-					<td class="text-center"><a class='btn btn-info btn-xs'
-						href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a
-						href="#" class="btn btn-danger btn-xs"><span
-						class="glyphicon glyphicon-remove"></span> Del</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-</div>
 </div>

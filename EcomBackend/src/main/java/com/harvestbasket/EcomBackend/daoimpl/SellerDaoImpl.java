@@ -91,4 +91,10 @@ public class SellerDaoImpl implements SellerDao {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean insertProduct(Seller c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

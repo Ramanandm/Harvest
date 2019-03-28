@@ -14,6 +14,7 @@ public interface SellerDao {
 	Seller selectOneSellers(String sname);
 	boolean insertSeller1(Seller seller);
 	boolean insertSeller11(Seller c);
+	boolean insertProduct(Seller c);
 
 
 
