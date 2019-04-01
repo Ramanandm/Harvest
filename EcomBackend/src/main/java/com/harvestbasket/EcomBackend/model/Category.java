@@ -23,7 +23,7 @@ public class Category {
 	
 	@Column(nullable=false)
 	@NotEmpty(message="category Name is mandatory")
-	@Pattern(regexp="[0-9a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
+	@Pattern(regexp="[0-9a-zA-Z ]{3,350}",message="can contan only alphabets manditatory")
 	private String categdesc;
 
 	public int getCategid() {

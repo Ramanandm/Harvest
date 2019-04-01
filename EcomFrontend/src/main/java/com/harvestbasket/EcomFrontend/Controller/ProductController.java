@@ -1,5 +1,9 @@
 package com.harvestbasket.EcomFrontend.Controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.harvestbasket.EcomBackend.dao.CategoryDao;
 import com.harvestbasket.EcomBackend.dao.ProductDao;
@@ -26,6 +31,42 @@ public class ProductController {
 	@Autowired 
 	SellerDao selldao;
 	
+	void addimage(MultipartFile f, int id) {
+		try {
+			String path = "C:\\Users\\Sivasakthi\\eclipse-workspace\\EcomFrontend\\src\\main\\webapp\\resources\\productimages\\";
+			path = path + String.valueOf(id) + ".jpg";
+			if (!f.isEmpty()) {
+				byte[] imagebytes = f.getBytes();
+				File x = new File(path);
+				if (x.exists()) {
+					x.delete();
+					BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(x));
+					bs.write(imagebytes);
+					bs.close();
+				} else {
+					BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(x));
+					bs.write(imagebytes);
+					bs.close();
+				}
+			}
+			Thread.sleep(5000);
+		} catch (Exception e) {
+
+		}	}	
+	
+	void deleteimage(int id) {
+		try{
+			String path ="C:\\Users\\Sivasakthi\\eclipse-workspace\\EcomFrontend\\src\\main\\webapp\\resources\\productimages";
+		     path = path+String.valueOf(id)+".jpg";
+		     File x = new File(path);
+		     if (x.exists()) {
+		    	 x.delete();
+		     }
+		     Thread.sleep(5000);
+		} catch (Exception e) {
+	}
+
+	}
 	@RequestMapping("/product")
 	String productPage(Model model) {
 		model.addAttribute("proobject", new Product());
@@ -42,6 +83,7 @@ public class ProductController {
 	String addproduct(@Valid @ModelAttribute("proobject")Product p,BindingResult bindingResult, Model model) {
 		try {
 			if(bindingResult.hasErrors())
+			
 			{
 				model.addAttribute("proobject",p);
 				model.addAttribute("error",true);
@@ -52,6 +94,7 @@ public class ProductController {
 			{
 				if(prodao.insertProduct(p))
 				{
+					addimage(p.getPimage(), p.getProductid());
 					model.addAttribute("proobject", new Product());
 					model.addAttribute("success",true);
 
@@ -81,6 +124,7 @@ public class ProductController {
 	@RequestMapping("/deleteproduct")
 	String deleteProduct(@RequestParam("productid") int productid, Model model) {
 		if (prodao.deleteProduct(productid)) {
+			deleteimage(productid);
 			model.addAttribute("success", true);
 		} else {
 			model.addAttribute("error", true);
@@ -115,12 +159,14 @@ public class ProductController {
 	String updateProduct(@Valid @ModelAttribute("proobject") Product p, BindingResult bindingResult, Model model) {
 		try {
 			if (bindingResult.hasErrors()) {
+				addimage(p.getPimage(), p.getProductid());
 				model.addAttribute("proobject", p);
 				model.addAttribute("error", true);
 				model.addAttribute("message", "Inappropriate Data");
 
 			} else {
 				if (prodao.updateProduct(p)) {
+					
 					model.addAttribute("proobject", new Product());
 					model.addAttribute("success", true);
 				} else {

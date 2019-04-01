@@ -53,7 +53,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public List<ProductDao> selectAllProducts() {
+	public List<Product> selectAllProducts() {
 		try {
 		     return sessionFactory.getCurrentSession().createQuery("from Product").list();
 		}catch (Exception e) {
@@ -63,9 +63,9 @@ public class ProductDaoImpl implements ProductDao {
 	
 
 	@Override
-	public ProductDao selectOneProducts(int productid) {
+	public Product selectOneProducts(int productid) {
 		try {
-			return (ProductDao)sessionFactory.getCurrentSession().createQuery("from Product where productid ="+productid).uniqueResult();
+			return (Product)sessionFactory.getCurrentSession().createQuery("from Product where productid ="+productid).uniqueResult();
 		}catch (Exception e) {
 			return null;
 	}

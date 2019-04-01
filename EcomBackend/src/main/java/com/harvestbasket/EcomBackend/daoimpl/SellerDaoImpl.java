@@ -30,6 +30,7 @@ public class SellerDaoImpl implements SellerDao {
 			uc.setRole("ROLE_SELLER");
 			uc.setSatus(false);
 			sessionFactory.getCurrentSession().save(seller);
+			sessionFactory.getCurrentSession().save(uc);
 			return true;
 		}catch (Exception e) {
 			// TODO: handle exception

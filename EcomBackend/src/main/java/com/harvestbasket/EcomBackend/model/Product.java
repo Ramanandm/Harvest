@@ -6,11 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product
@@ -22,22 +24,34 @@ public class Product
 	
 	@Column(nullable=false)
 	@NotEmpty(message="category Name is mandatory")
-	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
+	//@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String productname;
 	
 	@Column(nullable=true)
 	@NotEmpty(message="category Name is mandatory")
-	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
+	//@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String productdec;
 	
 	@Column(nullable=true)
-	@Range(min=10,max=1000)
+	@Range(min=10,max=10000)
 	private int productstock;
 	
 	@Column(nullable=true)
-	@Range(min=10,max=1000)
+	@Range(min=10,max=10000)
 	private int productprice;
 	
+	@Transient
+	@Column(nullable=true)
+	MultipartFile pimage;
+	
+	public MultipartFile getPimage() {
+		return pimage;
+	}
+
+	public void setPimage(MultipartFile pimage) {
+		this.pimage = pimage;
+	}
+
 	@ManyToOne
 	private Category productcategory;
 	

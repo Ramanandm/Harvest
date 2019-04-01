@@ -9,7 +9,7 @@ public interface ProductDao {
 	boolean insertProduct(Product c);
 	boolean updateProduct(Product products);
 	boolean deleteProduct(int productid);
-	List<ProductDao> selectAllProducts();
-	ProductDao selectOneProducts(int productid);
+	List<Product> selectAllProducts();
+	Product selectOneProducts(int productid);
 	
 }

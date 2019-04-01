@@ -9,7 +9,7 @@ body {
 	box-sizing: border-box;
 }
 
-input[type=text], select, textarea {
+input[type=text], select, textarea, select,input[type=file] {
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
@@ -62,7 +62,10 @@ input[type=submit]:hover {
 		<c:set var="action" value="updateproduct"></c:set>
 	</c:if>
 	
-		<form:form action="${action}" modelAttribute="proobject">
+		<form:form action="${action}" modelAttribute="proobject" enctype="multipart/form-data">
+		<c:if test="${editmode}">
+			<form:hidden path="productid"/>
+		</c:if>
 			<label for="name">product Name</label>
 			<form:input type="text" id="pname" name="productname"
 				placeholder="Product name.." path="productname" />
@@ -92,7 +95,8 @@ input[type=submit]:hover {
 				<c:forEach items="${selllist}" var="sell">
 					<form:option value="${sell.sid}">${sell.sname}</form:option>
 				</c:forEach>
-			</form:select>			
+			</form:select>	
+		<form:input type="file" name="fileToUpload" id="fileToUpload" path="pimage" required="true"/>
 			<input type="submit" value="Submit">
 		</form:form>
 	</div>
@@ -113,6 +117,7 @@ table, th, td {
 					<th>PRODUCT CATEGORY</th>
 					<th>PRODUCT SELLER</th>
 					<th>edit delete</th>
+					<th>PRODUCT image</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -123,6 +128,7 @@ table, th, td {
 						<td>${pro.productprice}</td>
 						<td>${pro.productdec}</td>
 						<td>${pro.productstock}</td>
+						<td><img src="resources/productimages/${pro.productid}.jpg" width="50" height="50"/></td>
 						<td>${pro.productcategory.categname}</td>
 						<td>${pro.productseller.sname}</td>
 						<td class="text-center"><a class='btn btn-info btn-xs'
