@@ -96,6 +96,7 @@ input[type=submit]:hover {
 					<form:option value="${sell.sid}">${sell.sname}</form:option>
 				</c:forEach>
 			</form:select>	
+		<label for="image">Product image</label>
 		<form:input type="file" name="fileToUpload" id="fileToUpload" path="pimage" required="true"/>
 			<input type="submit" value="Submit">
 		</form:form>
@@ -114,10 +115,10 @@ table, th, td {
 					<th>PRODUCT PRICE</th>
 					<th>PRODUCT DESCRIPTION</th>
 					<th>PRODUCT STOCK</th>
-					<th>PRODUCT CATEGORY</th>
 					<th>PRODUCT SELLER</th>
-					<th>edit delete</th>
+					<th>PRODUCT CATEGORY</th>
 					<th>PRODUCT image</th>
+					<th>edit delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -128,9 +129,9 @@ table, th, td {
 						<td>${pro.productprice}</td>
 						<td>${pro.productdec}</td>
 						<td>${pro.productstock}</td>
-						<td><img src="resources/productimages/${pro.productid}.jpg" width="50" height="50"/></td>
-						<td>${pro.productcategory.categname}</td>
 						<td>${pro.productseller.sname}</td>
+						<td>${pro.productcategory.categname}</td>
+						<td><img src="resources/productimages/${pro.productid}.jpeg" width="50" height="50"/></td>
 						<td class="text-center"><a class='btn btn-info btn-xs'
 					href="editproduct?productid=${pro.productid}"><span
 						class="glyphicon glyphicon-edit"></span> Edit</a> <a

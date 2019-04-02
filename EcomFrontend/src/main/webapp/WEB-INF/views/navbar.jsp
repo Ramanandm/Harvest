@@ -65,6 +65,7 @@
 			Category</a> <a
 			href="product"><i class="glyphicon glyphicon-shopping-cart"></i>
 			product</a>
+			<a href="viewproduct"><i class="fa fa-fw fa-home"></i> Items</a>
             
 		<ul class="navbar-nav navbar-right">
 			<li><a href="register"><span

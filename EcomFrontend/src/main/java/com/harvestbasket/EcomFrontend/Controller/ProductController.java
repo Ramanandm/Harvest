@@ -34,7 +34,7 @@ public class ProductController {
 	void addimage(MultipartFile f, int id) {
 		try {
 			String path = "C:\\Users\\Sivasakthi\\eclipse-workspace\\EcomFrontend\\src\\main\\webapp\\resources\\productimages\\";
-			path = path + String.valueOf(id) + ".jpg";
+			path = path + String.valueOf(id) + ".jpeg";
 			if (!f.isEmpty()) {
 				byte[] imagebytes = f.getBytes();
 				File x = new File(path);
@@ -57,7 +57,7 @@ public class ProductController {
 	void deleteimage(int id) {
 		try{
 			String path ="C:\\Users\\Sivasakthi\\eclipse-workspace\\EcomFrontend\\src\\main\\webapp\\resources\\productimages";
-		     path = path+String.valueOf(id)+".jpg";
+		     path = path+String.valueOf(id)+".jpeg";
 		     File x = new File(path);
 		     if (x.exists()) {
 		    	 x.delete();
@@ -78,6 +78,27 @@ public class ProductController {
 		model.addAttribute("editmode", false);
 		return "index";
 
+	}
+	@RequestMapping("/viewproduct")
+	String viewproductPage(Model model) {
+		model.addAttribute("productlist", prodao.selectAllProducts());
+		model.addAttribute("categelist",catdao.selectAllCategories());
+		model.addAttribute("viewproductPage",true);
+		return "index";
+
+	}
+	@RequestMapping("/oneproduct")
+     String oneproductpage(@RequestParam("productid") int productid,Model model) {
+		model.addAttribute("myproduct",prodao.selectOneProducts(productid));
+		model.addAttribute("viewproductpage",true);
+		return "index";	
+	}
+	@RequestMapping("/selectbycat")
+	String viewcatproductpage(@RequestParam("catid") int id,Model model) {
+		model.addAttribute("productlist", prodao.selectCatProducts(id));
+		model.addAttribute("categelist",catdao.selectAllCategories());
+		model.addAttribute("viewproductPage",true);
+		return "index";
 	}
 	@RequestMapping("/addproduct")
 	String addproduct(@Valid @ModelAttribute("proobject")Product p,BindingResult bindingResult, Model model) {
@@ -117,6 +138,7 @@ public class ProductController {
 		model.addAttribute("productlist", prodao.selectAllProducts());
 		model.addAttribute("categelist",catdao.selectAllCategories());
 		model.addAttribute("selllist",selldao.selectAllSellers());
+		model.addAttribute("editmode",false);
 		return "index";
 
 	}
@@ -159,14 +181,13 @@ public class ProductController {
 	String updateProduct(@Valid @ModelAttribute("proobject") Product p, BindingResult bindingResult, Model model) {
 		try {
 			if (bindingResult.hasErrors()) {
-				addimage(p.getPimage(), p.getProductid());
 				model.addAttribute("proobject", p);
 				model.addAttribute("error", true);
 				model.addAttribute("message", "Inappropriate Data");
 
 			} else {
 				if (prodao.updateProduct(p)) {
-					
+					addimage(p.getPimage(), p.getProductid());
 					model.addAttribute("proobject", new Product());
 					model.addAttribute("success", true);
 				} else {

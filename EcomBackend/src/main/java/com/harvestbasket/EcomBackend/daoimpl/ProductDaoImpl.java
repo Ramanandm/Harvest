@@ -61,6 +61,15 @@ public class ProductDaoImpl implements ProductDao {
 		return null;
 	}
 	
+	@Override
+	public List<Product> selectCatProducts(int id) {
+		try {
+			return sessionFactory.getCurrentSession().createQuery("from Product where productcategory="+id).list();
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		return null;
+		}}
 
 	@Override
 	public Product selectOneProducts(int productid) {

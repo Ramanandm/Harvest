@@ -10,6 +10,8 @@ public interface ProductDao {
 	boolean updateProduct(Product products);
 	boolean deleteProduct(int productid);
 	List<Product> selectAllProducts();
+	List<Product> selectCatProducts(int id);
 	Product selectOneProducts(int productid);
+	
 	
 }
