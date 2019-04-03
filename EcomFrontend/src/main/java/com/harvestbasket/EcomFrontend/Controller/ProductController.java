@@ -67,7 +67,7 @@ public class ProductController {
 	}
 
 	}
-	@RequestMapping("/product")
+	@RequestMapping("/seller/product")
 	String productPage(Model model) {
 		model.addAttribute("proobject", new Product());
 		model.addAttribute("productlist", prodao.selectAllProducts());
@@ -90,7 +90,7 @@ public class ProductController {
 	@RequestMapping("/oneproduct")
      String oneproductpage(@RequestParam("productid") int productid,Model model) {
 		model.addAttribute("myproduct",prodao.selectOneProducts(productid));
-		model.addAttribute("viewproductpage",true);
+		model.addAttribute("oneproductpage",true);
 		return "index";	
 	}
 	@RequestMapping("/selectbycat")
@@ -100,7 +100,7 @@ public class ProductController {
 		model.addAttribute("viewproductPage",true);
 		return "index";
 	}
-	@RequestMapping("/addproduct")
+	@RequestMapping("/seller/addproduct")
 	String addproduct(@Valid @ModelAttribute("proobject")Product p,BindingResult bindingResult, Model model) {
 		try {
 			if(bindingResult.hasErrors())
@@ -143,7 +143,7 @@ public class ProductController {
 
 	}
 
-	@RequestMapping("/deleteproduct")
+	@RequestMapping("/seller/deleteproduct")
 	String deleteProduct(@RequestParam("productid") int productid, Model model) {
 		if (prodao.deleteProduct(productid)) {
 			deleteimage(productid);
@@ -162,7 +162,7 @@ public class ProductController {
 
 	}
 
-	@RequestMapping("/editproduct")
+	@RequestMapping("/seller/editproduct")
 	String editProduct(@RequestParam("productid") int productid, Model model) {
 		model.addAttribute("editmode", true);
 		model.addAttribute("success", false);
@@ -177,7 +177,7 @@ public class ProductController {
 
 	}
 	
-	@RequestMapping("/updateproduct")
+	@RequestMapping("/seller/updateproduct")
 	String updateProduct(@Valid @ModelAttribute("proobject") Product p, BindingResult bindingResult, Model model) {
 		try {
 			if (bindingResult.hasErrors()) {

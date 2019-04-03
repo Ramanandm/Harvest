@@ -25,11 +25,7 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("/login")
-	String loginPage(Model model) {
-		model.addAttribute("loginPage", true);
-		return "index";
-	}
+	
 
 }
 

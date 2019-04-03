@@ -1,5 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -55,11 +56,11 @@ input[type=submit]:hover {
 	</c:if>
 	<c:if test="${!editmode}">
 		<h1 class="title">Product</h1>
-		<c:set var="action" value="addproduct"></c:set>
+		<c:set var="action" value="${cr}/admin/addproduct"></c:set>
 	</c:if>
 	<c:if test="${editmode}">
 		<h1 class="title">Edit Product</h1>
-		<c:set var="action" value="updateproduct"></c:set>
+		<c:set var="action" value="${cr}/admin/updateproduct"></c:set>
 	</c:if>
 	
 		<form:form action="${action}" modelAttribute="proobject" enctype="multipart/form-data">
@@ -131,11 +132,11 @@ table, th, td {
 						<td>${pro.productstock}</td>
 						<td>${pro.productseller.sname}</td>
 						<td>${pro.productcategory.categname}</td>
-						<td><img src="resources/productimages/${pro.productid}.jpeg" width="50" height="50"/></td>
+						<td><img src="${cr}/admin/resources/productimages/${pro.productid}.jpeg" width="50" height="50"/></td>
 						<td class="text-center"><a class='btn btn-info btn-xs'
-					href="editproduct?productid=${pro.productid}"><span
+					href="${cr}/admin/editproduct?productid=${pro.productid}"><span
 						class="glyphicon glyphicon-edit"></span> Edit</a> <a
-					href="deleteproduct?productid=${pro.productid}"
+					href="${cr}/admin/deleteproduct?productid=${pro.productid}"
 					class="btn btn-danger btn-xs"><span
 						class="glyphicon glyphicon-remove"></span> Del</a></td>
 					</tr>

@@ -3,6 +3,7 @@ package com.harvestbasket.EcomFrontend.Controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,7 @@ import com.harvestbasket.EcomBackend.model.User;
 public class UserController {
     	@Autowired 
 		UserDao userdao;
+    	
 		@RequestMapping("/register")
 		String sellerPage(Model model) {
 			model.addAttribute("userobject", new User());
@@ -30,7 +32,6 @@ public class UserController {
 		@RequestMapping("/adduser")
 		String addUser(@Valid @ModelAttribute("userobject")User u,BindingResult bindingResult, Model model) {
 			try {
-				Object c;
 				if(bindingResult.hasErrors())
 				{
 					model.addAttribute("userobject",u);
@@ -40,6 +41,8 @@ public class UserController {
 				}
 				else
 				{
+					BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+					u.setPassword(passwordEncoder.encode(u.getPassword()));
 					if(userdao.insertUser(u))
 					{
 						model.addAttribute("userobject", new User());
@@ -48,7 +51,7 @@ public class UserController {
 					}
 					else
 					{
-						model.addAttribute("userobject", new User());
+						model.addAttribute("error",true);
 						model.addAttribute("message","pls try after sometimes");
 						model.addAttribute("sellobject",u);
 					}

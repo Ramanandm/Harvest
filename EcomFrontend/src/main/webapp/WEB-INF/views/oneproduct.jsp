@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 @import
 	url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css)
@@ -62,7 +63,8 @@
 .fa-beat {
 	animation: fa-beat 5s ease infinite;
 }
- #justpushtobottom {
+
+#justpushtobottom {
 	height: 40%;
 }
 
@@ -73,46 +75,60 @@ keyframes fa-beat { 0% {
 5%
 {
 transform
+
+
 :scale
+
+
 (1
 .25
-);
 
-  
+
+);
 }
 20%
 {
 transform
-:scale(1)
-;
 
-  
+
+:scale(1)
+
+
+;
 }
 30%
 {
 transform
-:scale(1)
-;
 
-  
+
+:scale(1)
+
+
+;
 }
 35%
 {
 transform
+
+
 :scale
+
+
 (1
 .25
-);
 
-  
+
+);
 }
 50%
 {
 transform
+
+
 :scale(1)
 ;
 
-  
+
 }
 55%
 {
@@ -122,26 +138,24 @@ transform
 .25
 );
 
-  
+
 }
-70%
-{
+70%{
 transform
 :scale(1)
 ;
-
-  
+ 
 }
 }
 </style>
 <div class="container">
 	<div class="card border-0">
 		<div class="row">
-			<aside class="col-sm-4">
+			<aside class="col-sm-12">
 				<article class="gallery-wrap">
 					<div class="img-big-wrap">
 						<div>
-							<img src="resources/pimages/${myproduct.productid}.jpeg">
+							<img src="${cr}/user/resources/productimages/${myproduct.productid}.jpeg">
 						</div>
 					</div>
 				</article>
@@ -154,31 +168,31 @@ transform
 					</div>
 					<div class="mb-3 mt-3">
 						<span class="price-title">Price :</span> <span
-							class="price color-price-waanbii">&#x20B9 ${myproduct.productprice}/-</span>
+							class="price color-price-waanbii">&#x20B9
+							${myproduct.productprice}/-</span>
 					</div>
 					<div class="item-property">
 						<span class="price-title">Description:</span> <span>${myproduct.productdec}</span>
 					</div>
 				</article>
 			</aside>
-			<c:if test="${myproduct.quantity != 0}">
-			<aside class="col-sm-3">
-				<div class="row" style="padding-top: 50%;">
-					<a href="addToCart?pid=${myproduct.productid}"
-						class="btn btn-lg color-box-waanbii" type="button"> <i
-						class="fa fa-shopping-cart"></i> Add to Cart
-					</a>
-				</div>
-			</aside>
+			<c:if test="${myproduct.productstock != 0}">
+				<aside class="col-sm-3">
+					<div class="row" style="padding-top: 50%;">
+						<a href="${cr}/user/addToCart?pid=${myproduct.productid}"
+							class="btn btn-lg color-box-waanbii" type="button"> <i
+							class="fa fa-shopping-cart"></i> Add to Cart
+						</a>
+					</div>
+				</aside>
 			</c:if>
-			<c:if test="${myproduct.quantity == 0}">
-			<aside class="col-sm-3">
-				<div class="row" style="padding-top: 50%;">
-					<a href=""
-						class="btn btn-lg color-box-waanbii" type="button">  Out of Stock
-					</a>
-				</div>
-			</aside>
+			<c:if test="${myproduct.productstock == 0}">
+				<aside class="col-sm-3">
+					<div class="row" style="padding-top: 50%;">
+						<a href="" class="btn btn-lg color-box-waanbii" type="button">
+							Out of Stock </a>
+					</div>
+				</aside>
 			</c:if>
 		</div>
 	</div>

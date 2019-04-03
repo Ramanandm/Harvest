@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 #navbar {
 	overflow: hidden;
@@ -59,18 +61,18 @@
 	<a href="#default" id="logo">Harvest basket</a>
 	<div id="navbar-left">
 		<a href="home"><i class="fa fa-fw fa-home"></i> Home</a> <a
-			href="aboutus"><i class="fa fa-fw fa-search"></i> About</a> <a
-			href="contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a> <a
-			href="category"><i class="glyphicon glyphicon-shopping-cart"></i>
+			href="${cr}/aboutus"><i class="fa fa-fw fa-search"></i> About</a> <a
+			href="${cr}/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a> <a
+			href="${cr}/admin/category"><i class="glyphicon glyphicon-shopping-cart"></i>
 			Category</a> <a
-			href="product"><i class="glyphicon glyphicon-shopping-cart"></i>
+			href="${cr}/admin/product"><i class="glyphicon glyphicon-shopping-cart"></i>
 			product</a>
-			<a href="viewproduct"><i class="fa fa-fw fa-home"></i> Items</a>
+			<a href="${cr}/viewproduct"><i class="fa fa-fw fa-home"></i> Items</a>
             
 		<ul class="navbar-nav navbar-right">
-			<li><a href="register"><span
+			<li><a href="${cr}/register"><span
 					class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			<li><a href="login"><span class="glyphicon glyphicon-log-in"></span>
+			<li><a href="${cr}/login"><span class="glyphicon glyphicon-log-in"></span>
 					Login</a></li>
 		</ul>
 	</div>

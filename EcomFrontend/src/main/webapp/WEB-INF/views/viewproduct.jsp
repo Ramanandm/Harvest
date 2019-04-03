@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 .thumbnail {
 	height: 200;
@@ -41,10 +42,10 @@ width: 80;
 <!-- side nav bar -->
 	<div class="col-md-2 col-sm-2 col-xs-12">
 		<div class="list-group">
-			<a href="AllProduct" class="list-group-item">All Category</a>
+			<a href="${cr}/viewproduct" class="list-group-item">All Category</a>
 			<c:forEach items="${categelist}" var="c">
 				<a class="list-group-item"
-					href="selectbycat?catid=${c.categid}">${c.categname}</a>
+					href="${cr}/selectbycat?catid=${c.categid}">${c.categname}</a>
 			</c:forEach>
 		</div>
 	</div>
@@ -56,14 +57,14 @@ width: 80;
 					<h4 class="text-center">
 						<span class="label " style="word-wrap: break-word;">${l.productname}</span>
 					</h4>
-					<img src="resources/productimages/${l.productid}.jpeg"class="img-responsive">
+					<img src="${cr}/resources/productimages/${l.productid}.jpeg"class="img-responsive">
 					<div class="caption">
 						<div class="row">
 							<div class="col-md-6">
 								<h4 class="text-center">&#8377 ${l.productprice} /-</h4>
 							</div>
 							<div class="col-md-6">
-								<a href="oneproduct?productid=${l.productid}" class="btn"><span
+								<a href="${cr}/oneproduct?productid=${l.productid}" class="btn"><span
 									class="glyphicon glyphicon-info-sign"></span> Info</a>
 							</div>
 						</div>

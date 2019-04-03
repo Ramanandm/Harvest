@@ -33,6 +33,7 @@ public class Seller {
 	
 	@Transient
 	@NotEmpty(message="password is mandatory")
+	@Pattern(regexp="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$",message="Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.")
     private String sellerpassword;
 	
 	@Column(nullable=false)

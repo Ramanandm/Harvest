@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <script
 	src="https://jssors8.azureedge.net/script/jssor.slider-27.5.0.min.js"
 	type="text/javascript"></script>
@@ -414,19 +416,19 @@ to {
 	<div data-u="slides"
 		style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 380px; overflow: hidden;">
 		<div>
-			<img data-u="image" src="resources/images/image1.jpg" />
+			<img data-u="image" src="${cr}/resources/images/image1.jpg" />
 		</div>
 		<div>
-			<img data-u="image" src="resources/images/image6.jpg" />
+			<img data-u="image" src="${cr}/resources/images/image6.jpg" />
 		</div>
 		<div>
-			<img data-u="image" src="resources/images/image3.jpg" />
+			<img data-u="image" src="${cr}/resources/images/image3.jpg" />
 		</div>
 		<div>
-			<img data-u="image" src="resources/images/image4.jpg" />
+			<img data-u="image" src="${cr}/resources/images/image4.jpg" />
 		</div>
 		<div>
-			<img data-u="image" src="resources/images/image5.jpg" />
+			<img data-u="image" src="${cr}/resources/images/image5.jpg" />
 		</div>
 
 	</div>

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 style>body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -99,7 +100,7 @@ to {
 </style>
 <div class="modal-content animate">
 
-	<form:form action="addseller" modelAttribute="sellobject">
+	<form:form action="${cr}/seller/addseller" modelAttribute="sellobject">
 		<div class="container">
 			<hr>
 			<div>

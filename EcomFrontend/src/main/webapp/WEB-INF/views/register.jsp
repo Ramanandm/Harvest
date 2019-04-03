@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="cr" value="${pageContext.request.contextPath}" />
 <style>
 .colorgraph {
 	height: 5px;
@@ -30,9 +32,11 @@
 	width: 90%;
 }
 </style>
-<form:form action="adduser" modelAttribute="userobject">
-	<div class="modal-content">
-		<div class="row" style="margin-top: 70px">
+<div class="modal-content">
+	<div class="row" style="margin-top: 70px">
+
+		<form:form action="adduser" modelAttribute="userobject">
+
 			<div
 				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 				<fieldset>
@@ -41,25 +45,37 @@
 
 					<div class="form-group">
 						Name:
-						<form: input type="Name" name="Name" id="name"
+						<form:input type="text" name="Name" id="name"
 							class="form-control input-lg" placeholder="Enter your Name"
 							path="cname" />
+							<form:errors path="cname" cssStyle="color:Red"></form:errors>
+							
+					</div>
+					<div class="form-group">
+						phno:
+						<form:input type="text" name="Name" id="name"
+							class="form-control input-lg" placeholder="Enter your Name"
+							path="cphno" />
+							<form:errors path="cphno" cssStyle="color:Red"></form:errors>
+						
 					</div>
 					<div class="form-group">
 						Email:
-						<form: input type="email" name="email" id="email"
+						<form:input type="text" name="email" id="email"
 							class="form-control input-lg" placeholder="Email Address"
 							path="emailid" />
+							<form:errors path="emailid" cssStyle="color:Red"></form:errors>
 					</div>
 					<div class="form-group">
 						Password:
-						<form: input type="password" name="password" id="password"
+						<form:input type="password" name="password" id="password"
 							class="form-control input-lg" placeholder="Password"
 							path="password" />
+							<form:errors path="password" cssStyle="color:Red"></form:errors>
 					</div>
 					<c:if test="${success}">
-						<div class="alert alert-success" role="alert">Inserted
-							Successfully</div>
+						<div class="alert alert-success" role="alert">login
+							Successful</div>
 					</c:if>
 					<c:if test="${error}">
 						<div class="alert alert-danger" role="alert">${message}</div>
@@ -70,77 +86,85 @@
 						<div class="col-xs-6 col-sm-6 col-md-6">
 							<button type="submit" class="registerbtn">SUBMIT</button>
 						</div>
-</form:form>
-<div class="col-xs-6 col-sm-6 col-md-6">
-	<a href="seller" class="btn btn-lg btn-primary btn-block">SELLER
-		REGISTER</a>
-	</fieldset>
-	<script>
-		$(function() {
-			$('.button-checkbox')
-					.each(
-							function() {
-								var $widget = $(this), $button = $widget
-										.find('button'), $checkbox = $widget
-										.find('input:checkbox'), color = $button
-										.data('color'), settings = {
-									on : {
-										icon : 'glyphicon glyphicon-check'
-									},
-									off : {
-										icon : 'glyphicon glyphicon-unchecked'
-									}
-								};
+		</form:form>
+		<div class="col-xs-6 col-sm-6 col-md-6">
+			<a href="seller" class="btn btn-lg btn-primary btn-block">SELLER
+				REGISTER</a>
+			</fieldset>
+			<script>
+				$(function() {
+					$('.button-checkbox')
+							.each(
+									function() {
+										var $widget = $(this), $button = $widget
+												.find('button'), $checkbox = $widget
+												.find('input:checkbox'), color = $button
+												.data('color'), settings = {
+											on : {
+												icon : 'glyphicon glyphicon-check'
+											},
+											off : {
+												icon : 'glyphicon glyphicon-unchecked'
+											}
+										};
 
-								$button.on('click', function() {
-									$checkbox.prop('checked', !$checkbox
-											.is(':checked'));
-									$checkbox.triggerHandler('change');
-									updateDisplay();
-								});
+										$button.on('click', function() {
+											$checkbox.prop('checked',
+													!$checkbox.is(':checked'));
+											$checkbox.triggerHandler('change');
+											updateDisplay();
+										});
 
-								$checkbox.on('change', function() {
-									updateDisplay();
-								});
+										$checkbox.on('change', function() {
+											updateDisplay();
+										});
 
-								function updateDisplay() {
-									var isChecked = $checkbox.is(':checked');
-									// Set the button's state
-									$button.data('state', (isChecked) ? "on"
-											: "off");
+										function updateDisplay() {
+											var isChecked = $checkbox
+													.is(':checked');
+											// Set the button's state
+											$button.data('state',
+													(isChecked) ? "on" : "off");
 
-									// Set the button's icon
-									$button
-											.find('.state-icon')
-											.removeClass()
-											.addClass(
-													'state-icon '
-															+ settings[$button
-																	.data('state')].icon);
+											// Set the button's icon
+											$button
+													.find('.state-icon')
+													.removeClass()
+													.addClass(
+															'state-icon '
+																	+ settings[$button
+																			.data('state')].icon);
 
-									// Update the button's color
-									if (isChecked) {
-										$button.removeClass('btn-default')
-												.addClass(
-														'btn-' + color
-																+ ' active');
-									} else {
-										$button.removeClass(
-												'btn-' + color + ' active')
-												.addClass('btn-default');
-									}
-								}
-								function init() {
-									updateDisplay();
-									// Inject the icon if applicable
-									if ($button.find('.state-icon').length == 0) {
-										$button.prepend('<i class="state-icon '
-												+ settings[$button
-														.data('state')].icon
-												+ '"></i> ');
-									}
-								}
-								init();
-							});
-		});
-	</script>
+											// Update the button's color
+											if (isChecked) {
+												$button
+														.removeClass(
+																'btn-default')
+														.addClass(
+																'btn-'
+																		+ color
+																		+ ' active');
+											} else {
+												$button
+														.removeClass(
+																'btn-'
+																		+ color
+																		+ ' active')
+														.addClass('btn-default');
+											}
+										}
+										function init() {
+											updateDisplay();
+											// Inject the icon if applicable
+											if ($button.find('.state-icon').length == 0) {
+												$button
+														.prepend('<i class="state-icon '
+																+ settings[$button
+																		.data('state')].icon
+																+ '"></i> ');
+											}
+										}
+										init();
+									});
+				});
+			</script>

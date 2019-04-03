@@ -28,6 +28,7 @@ public class UserDaoImpl implements UserDao {
 			uc.setRole("ROLE_USER");
 			uc.setSatus(false);
 			sessionFactory.getCurrentSession().save(user);
+			sessionFactory.getCurrentSession().save(uc);
 			return true;
 		}catch (Exception e) {
 			// TODO: handle exception

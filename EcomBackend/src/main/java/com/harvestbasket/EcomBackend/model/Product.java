@@ -24,12 +24,12 @@ public class Product
 	
 	@Column(nullable=false)
 	@NotEmpty(message="category Name is mandatory")
-	//@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
+	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String productname;
 	
 	@Column(nullable=true)
 	@NotEmpty(message="category Name is mandatory")
-	//@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
+	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String productdec;
 	
 	@Column(nullable=true)

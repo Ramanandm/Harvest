@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.harvestbasket.EcomBackend.dao.CategoryDao;
 import com.harvestbasket.EcomBackend.model.Category;
 @Controller
+@RequestMapping("/admin")
 public class CategoryController {
 	@Autowired
 	CategoryDao catdao;
