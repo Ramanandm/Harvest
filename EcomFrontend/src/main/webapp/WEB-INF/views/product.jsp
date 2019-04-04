@@ -132,11 +132,11 @@ table, th, td {
 						<td>${pro.productstock}</td>
 						<td>${pro.productseller.sname}</td>
 						<td>${pro.productcategory.categname}</td>
-						<td><img src="${cr}/admin/resources/productimages/${pro.productid}.jpeg" width="50" height="50"/></td>
+						<td><img src="${cr}/resources/productimages/${pro.productid}.jpeg" width="50" height="50"/></td>
 						<td class="text-center"><a class='btn btn-info btn-xs'
-					href="${cr}/admin/editproduct?productid=${pro.productid}"><span
+					href="${cr}/seller/editproduct?productid=${pro.productid}"><span
 						class="glyphicon glyphicon-edit"></span> Edit</a> <a
-					href="${cr}/admin/deleteproduct?productid=${pro.productid}"
+					href="${cr}/seller/deleteproduct?productid=${pro.productid}"
 					class="btn btn-danger btn-xs"><span
 						class="glyphicon glyphicon-remove"></span> Del</a></td>
 					</tr>

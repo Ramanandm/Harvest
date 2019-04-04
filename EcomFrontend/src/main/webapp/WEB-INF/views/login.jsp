@@ -33,6 +33,8 @@
 }
 </style>
 <form action="perform_login" method="post">
+	<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<fieldset>
 	<h2>Login In</h2>
 	<hr class="colorgraph">
 	<div class="form-group">

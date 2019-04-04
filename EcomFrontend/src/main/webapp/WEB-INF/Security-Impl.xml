@@ -33,7 +33,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 			<security:password-encoder hash="bcrypt"/>
 			<security:jdbc-user-service
 				data-source-ref="myDataSource"
-				users-by-username-query="select username,satus from Usercred where username=? and satus=true"
+				users-by-username-query="select username,password,satus from Usercred where username=? and satus=true"
 				authorities-by-username-query="select username,role from Usercred where username=?" />
 		</security:authentication-provider>
 	</security:authentication-manager>

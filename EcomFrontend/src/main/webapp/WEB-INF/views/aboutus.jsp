@@ -91,7 +91,7 @@
 					<div class="top_line"></div>
 					<div class="what_we_do_figure">
 						<img
-							src="http://mtechwebsoft.com/templates/himax/demo/images/what_we_do/2.png"
+							src="${cr}/http://mtechwebsoft.com/templates/himax/demo/images/what_we_do/2.png"
 							alt="" class="img-responsive">
 					</div>
 					<h4 class="what_we_do_title">Best In Class</h4>

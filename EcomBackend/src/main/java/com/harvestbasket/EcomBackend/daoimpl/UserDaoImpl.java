@@ -72,7 +72,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User selectOneUser(String emailid) {
 		try {
-			return(User)sessionFactory.getCurrentSession().createQuery("from user where Useremailid='"+emailid+ "'").uniqueResult();
+			return(User)sessionFactory.getCurrentSession().createQuery("from User where emailid='"+emailid+ "'").uniqueResult();
 		}catch (Exception e) {
 			return null;
 		

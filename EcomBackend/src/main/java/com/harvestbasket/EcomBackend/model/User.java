@@ -28,13 +28,13 @@ public class User {
 	private String emailid;
 	
 	@Column(nullable=false,unique=true)
-	@Pattern(regexp="^([9]{1})([234789]{1})([0-9]{8})$",message="insert valid phone number")
+	//@Pattern(regexp="^([9]{1})([234789]{1})([0-9]{8})$",message="insert valid phone number")
 	@NotEmpty(message="Phone number is mandatory")
 	private String cphno;
    
 	@Transient
 	@NotEmpty(message="password is mandatory")
-	@Pattern(regexp="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$",message="Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.")
+	//@Pattern(regexp="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$",message="Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.")
 	private String password;
 
 	public int getCusid() {

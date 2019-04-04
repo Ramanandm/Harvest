@@ -88,7 +88,7 @@
 						</div>
 		</form:form>
 		<div class="col-xs-6 col-sm-6 col-md-6">
-			<a href="seller" class="btn btn-lg btn-primary btn-block">SELLER
+			<a href="${cr}/seller" class="btn btn-lg btn-primary btn-block">SELLER
 				REGISTER</a>
 			</fieldset>
 			<script>

@@ -60,21 +60,55 @@
 <div id="navbar">
 	<a href="#default" id="logo">Harvest basket</a>
 	<div id="navbar-left">
-		<a href="home"><i class="fa fa-fw fa-home"></i> Home</a> <a
+	<c:choose>
+	<c:when test="${sessionScope.userloggedin}">
+	<ul class="list">
+	<a href="${cr}/home"><i class="fa fa-fw fa-home"></i> Home</a> <a
 			href="${cr}/aboutus"><i class="fa fa-fw fa-search"></i> About</a> <a
-			href="${cr}/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a> <a
-			href="${cr}/admin/category"><i class="glyphicon glyphicon-shopping-cart"></i>
-			Category</a> <a
-			href="${cr}/admin/product"><i class="glyphicon glyphicon-shopping-cart"></i>
-			product</a>
+			href="${cr}/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
 			<a href="${cr}/viewproduct"><i class="fa fa-fw fa-home"></i> Items</a>
-            
+			<ul class="navbar-nav navbar-right">
+			<li><a href="${cr}/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+	</ul>
+	</c:when>
+	<c:when test="${sessionScope.adminloggedin}">
+	<ul class="list">
+	<a href="${cr}/home"><i class="fa fa-fw fa-home"></i> Home</a> 
+		<a	href="${cr}/aboutus"><i class="fa fa-fw fa-search"></i> About</a> 
+		<a	href="${cr}/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+		<a	href="${cr}/admin/category"><i class="glyphicon glyphicon-shopping-cart"></i>Category</a>
+		<a href="${cr}/viewproduct"><i class="fa fa-fw fa-home"></i> Items</a>
 		<ul class="navbar-nav navbar-right">
+		<li><a href="${cr}/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+	</ul>
+	</c:when>
+	<c:when test="${sessionScope.sellerloggedin}">
+	<ul class="list">
+	<a href="${cr}/home"><i class="fa fa-fw fa-home"></i> Home</a> 
+		<a	href="${cr}/aboutus"><i class="fa fa-fw fa-search"></i> About</a> 
+		<a	href="${cr}/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+		<a	href="${cr}/seller/product"><i class="glyphicon glyphicon-shopping-cart"></i>product</a>
+	    <a href="${cr}/viewproduct"><i class="fa fa-fw fa-home"></i> Items</a>
+	    <ul class="navbar-nav navbar-right">
+	    <li><a href="${cr}/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+	    
+	</ul>
+	</c:when>
+	<c:otherwise>
+	<ul class="list">
+	<a href="${cr}/home"><i class="fa fa-fw fa-home"></i> Home</a> 
+		<a	href="${cr}/aboutus"><i class="fa fa-fw fa-search"></i> About</a> 
+		<a	href="${cr}/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+		<a href="${cr}/viewproduct"><i class="fa fa-fw fa-home"></i> Items</a>
+	    <ul class="navbar-nav navbar-right">
 			<li><a href="${cr}/register"><span
 					class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 			<li><a href="${cr}/login"><span class="glyphicon glyphicon-log-in"></span>
 					Login</a></li>
 		</ul>
+	</ul>
+	</c:otherwise>
+	</c:choose>
 	</div>
 
 </div>
