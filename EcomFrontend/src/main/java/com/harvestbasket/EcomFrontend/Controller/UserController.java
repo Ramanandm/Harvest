@@ -23,11 +23,11 @@ public class UserController {
 			model.addAttribute("userobject", new User());
 			model.addAttribute("userlist", userdao.selectAllUser());
 			model.addAttribute("registerPage",true);
-			model.addAttribute("error",false);
-			model.addAttribute("message","");
-			model.addAttribute("success",false);
+			model.addAttribute("Success", false);
+			model.addAttribute("Error1", false);
+			model.addAttribute("Error2", false);//user already exists
 			return "index";
-
+		
 		}
 		@RequestMapping("/adduser")
 		String addUser(@Valid @ModelAttribute("userobject")User u,BindingResult bindingResult, Model model) {
@@ -36,8 +36,9 @@ public class UserController {
 				{
 					model.addAttribute("userobject",u);
 					model.addAttribute("error",true);
-					model.addAttribute("message","Inapproprite data");
-			
+					model.addAttribute("Success", false);
+					model.addAttribute("Error1", true);
+					model.addAttribute("Error2", false);//user already exists
 				}
 				else
 				{
@@ -46,7 +47,9 @@ public class UserController {
 					if(userdao.insertUser(u))
 					{
 						model.addAttribute("userobject", new User());
-						model.addAttribute("success",true);
+						model.addAttribute("Success", true);
+						model.addAttribute("Error1", false);
+						model.addAttribute("Error2", false); //user already exists
 
 					}
 					else
@@ -61,7 +64,9 @@ public class UserController {
 			{
 				model.addAttribute("userobject",u);
 				model.addAttribute("error",true);
-				model.addAttribute("message","duplicate data");
+				model.addAttribute("Success", false);
+				model.addAttribute("Error1", false);
+				model.addAttribute("Error2", true);//user already exists
 			}
 			model.addAttribute("registerPage",true);
 			model.addAttribute("userlist", userdao.selectAllUser());

@@ -155,7 +155,7 @@ transform
 				<article class="gallery-wrap">
 					<div class="img-big-wrap">
 						<div>
-							<img src="${cr}/user/resources/productimages/${myproduct.productid}.jpeg">
+							<img src="${cr}/resources/productimages/${myproduct.productid}.jpeg">
 						</div>
 					</div>
 				</article>
