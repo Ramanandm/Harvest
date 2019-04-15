@@ -41,23 +41,20 @@ public class LoginController {
 	String loginnsuccess(Model model, HttpSession httpSession)
 	{
 		String emailid = SecurityContextHolder.getContext().getAuthentication().getName();
-		Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext()
-				.getAuthentication().getAuthorities();
+		Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 		for (GrantedAuthority authority : authorities) {
 			if (authority.getAuthority().equals("ROLE_USER")) {
 				User user = userdao.selectOneUser(emailid);
 				httpSession.setAttribute("username", user.getCname());
-				httpSession.setAttribute("cartid", user.getCusid());
+				httpSession.setAttribute("userid", user.getCusid());
 				httpSession.setAttribute("emailid", user.getEmailid());
 				httpSession.setAttribute("userloggedin", true);
 				model.addAttribute("sliderPage", true);
 			} else if(authority.getAuthority().equals("ROLE_SELLER"))
 			{
 				Seller seller =sellerdao.selectOneSellers(emailid);
-				httpSession.setAttribute("username", seller.getSname());
-				httpSession.setAttribute("emailid", seller.getSmailid());
 				httpSession.setAttribute("sellerloggedin", true);
-				model.addAttribute("sellerPage", true);
+				model.addAttribute("sliderPage", true);
 			}
 			else {
 				httpSession.setAttribute("username", "ADMINISTRATOR");

@@ -56,11 +56,11 @@ input[type=submit]:hover {
 	</c:if>
 	<c:if test="${!editmode}">
 		<h1 class="title">Product</h1>
-		<c:set var="action" value="${cr}/admin/addproduct"></c:set>
+		<c:set var="action" value="${cr}/seller/addproduct"></c:set>
 	</c:if>
 	<c:if test="${editmode}">
 		<h1 class="title">Edit Product</h1>
-		<c:set var="action" value="${cr}/admin/updateproduct"></c:set>
+		<c:set var="action" value="${cr}/seller/updateproduct"></c:set>
 	</c:if>
 	
 		<form:form action="${action}" modelAttribute="proobject" enctype="multipart/form-data">

@@ -1,5 +1,6 @@
 package com.harvestbasket.EcomBackend.daoimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -21,7 +22,7 @@ public class CartDaoImpl implements CartDao {
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
-	public boolean inserCart(Cart cart) {
+	public boolean insertCart(Cart cart) {
 		try {
 			sessionFactory.getCurrentSession().save(cart);
 			return true;
@@ -49,17 +50,18 @@ public class CartDaoImpl implements CartDao {
 	    	   return true;
 		} catch (Exception e) {
 			// TODO: handle exception
+			return false;
+
 		}
-		return false;
 	}
 
-	@Override
+	@Override	
 	public List<Cart> selectAllCarts(User user) {
 		try {
-		     return sessionFactory.getCurrentSession().createQuery("from Cart where User="+user.getCusid()).list();
+		     return sessionFactory.getCurrentSession().createQuery("from Cart where user="+user.getCusid()).list();
 		}catch (Exception e) {
 		}
-		return null;
+		return new ArrayList<Cart>();
 	}
 
 	@Override
@@ -71,5 +73,19 @@ public class CartDaoImpl implements CartDao {
 	}
 
 	}
+
+	@Override
+	public boolean deleteCart(Cart cart) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Cart> selectAllCarts(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }

@@ -68,6 +68,7 @@
 			href="${cr}/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
 			<a href="${cr}/viewproduct"><i class="fa fa-fw fa-home"></i> Items</a>
 			<ul class="navbar-nav navbar-right">
+			<li><a href="${cr}/user/addtocart"></a></li>
 			<li><a href="${cr}/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 	</ul>
 	</c:when>

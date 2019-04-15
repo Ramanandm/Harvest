@@ -25,7 +25,7 @@ public class SellerDaoImpl implements SellerDao {
 	public boolean insertSeller(Seller seller) {
 		try {
 			Usercred uc=new Usercred();
-			uc.setUsername(seller.getSname());
+			uc.setUsername(seller.getSmailid());
 			uc.setPassword(seller.getSellerpassword());
 			uc.setRole("ROLE_SELLER");
 			uc.setSatus(false);

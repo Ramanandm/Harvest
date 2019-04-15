@@ -29,7 +29,7 @@ public class Product
 	
 	@Column(nullable=true)
 	@NotEmpty(message="category Name is mandatory")
-	@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
+	//@Pattern(regexp="[a-zA-Z ]{3,250}",message="can contan only alphabets manditatory")
 	private String productdec;
 	
 	@Column(nullable=true)
@@ -37,7 +37,7 @@ public class Product
 	private int productstock;
 	
 	@Column(nullable=true)
-	@Range(min=10,max=10000)
+	@Range(min=1,max=10000)
 	private int productprice;
 	
 	@Transient

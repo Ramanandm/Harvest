@@ -10,7 +10,8 @@ public interface MyOrderDao {
 	boolean insertMyOrder(MyOrder myorder);
 	boolean upadateMyOrder(MyOrder myorder);
 	boolean deleteMyOrder(String orderid);
-	List<MyOrder>selectAllMyOrders(User user);
+	List<MyOrder>selectAllMyOrders(int i);
 	MyOrder selectOneMyOrder(String orderid);
+	List<MyOrder> selectAllMyOrders(User user);
 	
 }

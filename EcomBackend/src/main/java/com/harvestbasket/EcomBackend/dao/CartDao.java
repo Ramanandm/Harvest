@@ -7,11 +7,13 @@ import com.harvestbasket.EcomBackend.model.User;
 
 public interface CartDao {
 	
-	boolean inserCart(Cart cart);
+	boolean insertCart(Cart cart);
 	boolean updateCart(Cart cart);
-	boolean deleteCart(int itemid);
-    List<Cart>selectAllCarts(User user);
+	boolean deleteCart(Cart cart);
+    List<Cart>selectAllCarts(int itemid);
     Cart selectOneCart(int itemid);
+	boolean deleteCart(int itemid);
+	List<Cart> selectAllCarts(User user);
 
     
 	

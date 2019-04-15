@@ -6,8 +6,8 @@ import com.harvestbasket.EcomBackend.model.User;
 
 public interface UserDao {
 	
-	boolean insertUser(User u);
-	boolean updateUser(User u);
+	boolean insertUser(User user);
+	boolean updateUser(User user);
 	boolean deleteUser(String emailid);
 	List<User> selectAllUser();
 	User selectOneUser(String emailid);

@@ -89,7 +89,7 @@ public class ProductController {
 	}
 	@RequestMapping("/oneproduct")
      String oneproductpage(@RequestParam("productid") int productid,Model model) {
-		model.addAttribute("myproduct",prodao.selectOneProducts(productid));
+		model.addAttribute("myproduct",prodao.selectOneProduct(productid));
 		model.addAttribute("oneproductpage",true);
 		return "index";	
 	}
@@ -168,7 +168,7 @@ public class ProductController {
 		model.addAttribute("success", false);
 		model.addAttribute("error", false);
 		model.addAttribute("message", "");
-		model.addAttribute("proobject",prodao.selectOneProducts(productid));
+		model.addAttribute("proobject",prodao.selectOneProduct(productid));
 		model.addAttribute("productPage", true);
 		model.addAttribute("productlist", prodao.selectAllProducts());
 		model.addAttribute("categelist",catdao.selectAllCategories());

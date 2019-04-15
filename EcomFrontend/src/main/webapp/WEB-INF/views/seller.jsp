@@ -100,7 +100,7 @@ to {
 </style>
 <div class="modal-content animate">
 
-	<form:form action="seller" modelAttribute="sellobject" method="post">
+	<form:form action="addseller" modelAttribute="sellobject" method="post">
 		<div class="container">
 			<hr>
 			<div>

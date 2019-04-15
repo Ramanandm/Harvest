@@ -38,7 +38,7 @@ height: 80;
 width: 80;
 }
 </style>
-<div class="row">
+<div class="row" style="margin-top:80px;">
 <!-- side nav bar -->
 	<div class="col-md-2 col-sm-2 col-xs-12">
 		<div class="list-group">

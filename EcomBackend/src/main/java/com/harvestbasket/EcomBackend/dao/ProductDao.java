@@ -11,7 +11,7 @@ public interface ProductDao {
 	boolean deleteProduct(int productid);
 	List<Product> selectAllProducts();
 	List<Product> selectCatProducts(int id);
-	Product selectOneProducts(int productid);
+	Product selectOneProduct(int productid);
 	
 	
 }

@@ -22,6 +22,18 @@ public class MyOrder {
 	@ManyToOne
 	private Product product;
 	
+	@ManyToOne
+	private Address address;
+	
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Column
 	private int quantity;
 	
@@ -34,7 +46,7 @@ public class MyOrder {
 	public String getOrderid() {
 		return orderid;
 	}
-
+	
 	public void setOrderid(String orderid) {
 		this.orderid = orderid;
 	}
@@ -78,6 +90,11 @@ public class MyOrder {
 	public void setOrderDate(java.util.Date orderDate) {
 		this.orderDate = orderDate;
 	}
+
+	public void setUser(User selectOneUser) {
+		// TODO Auto-generated method stub
+		
+	}	
     
      
 	

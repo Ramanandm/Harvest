@@ -70,4 +70,10 @@ public class MyOrderDaoImpl implements MyOrderDao {
 
 	}
 
+	@Override
+	public List<MyOrder> selectAllMyOrders(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

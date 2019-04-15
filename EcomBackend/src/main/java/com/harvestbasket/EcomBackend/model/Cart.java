@@ -9,20 +9,23 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Cart {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int itemid;
-	
+
 	@ManyToOne
-	private User cname;
-	
+	private User user;
+
 	@ManyToOne
 	private Product product;
-	
+
 	@Column
 	private int quantity;
-	
+
+	@Column
+	private float subtotal;
+
 	public int getItemid() {
 		return itemid;
 	}
@@ -31,12 +34,12 @@ public class Cart {
 		this.itemid = itemid;
 	}
 
-	public User getCname() {
-		return cname;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCname(User cname) {
-		this.cname = cname;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Product getProduct() {
@@ -62,8 +65,5 @@ public class Cart {
 	public void setSubtotal(float subtotal) {
 		this.subtotal = subtotal;
 	}
-
-	@Column
-	private float subtotal;			
 
 }

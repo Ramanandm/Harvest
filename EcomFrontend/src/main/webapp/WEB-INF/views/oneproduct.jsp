@@ -153,7 +153,7 @@ transform
 		<div class="row">
 			<aside class="col-sm-12">
 				<article class="gallery-wrap">
-					<div class="img-big-wrap">
+					<div class="img-big-wrap" style="margin-top:70px;">
 						<div>
 							<img src="${cr}/resources/productimages/${myproduct.productid}.jpeg">
 						</div>
@@ -179,7 +179,7 @@ transform
 			<c:if test="${myproduct.productstock != 0}">
 				<aside class="col-sm-3">
 					<div class="row" style="padding-top: 50%;">
-						<a href="${cr}/user/addToCart?pid=${myproduct.productid}"
+						<a href="${cr}/addtocart?pid=${myproduct.productid}"
 							class="btn btn-lg color-box-waanbii" type="button"> <i
 							class="fa fa-shopping-cart"></i> Add to Cart
 						</a>
